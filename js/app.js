@@ -1,23 +1,18 @@
 // Description: This is the main file for the project
 
-// Import the libraries
-const video = document.getElementById('video')
+const predictions = await model.estimateHands(video)
+if (predictions.length > 0) {
+    // voorbeeld: bekijk x, y, z van het eerste botje van je pink:
+    let [y, x, z] = predictions[0].annotations.pinky[0]
+    console.log(x, y, z)
 
-// Create a new poseNet method
-const poseNet = ml5.poseNet(video, modelLoaded)
-let poses = []
 
-
-function modelLoaded() {
-    console.log('Model Loaded!')
-}
-
-poseNet.on('pose', (results) => {
-  poses = results
-  console.log(poses)
-})
-
-//video ready
-function videoReady(){
-    console.log("the webcam is ready")
+    // voorbeeld: alle landmarks x,y,z in een array plaatsen
+    let allPoints = []
+    for (let i = 0; i < 20; i++) {
+        allPoints.push(predictions[0].landmarks[i][0])
+        allPoints.push(predictions[0].landmarks[i][1])
+        allPoints.push(predictions[0].landmarks[i][2])
+    }
+    console.log(allPoints)
 }
