@@ -1,7 +1,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <!-- Load three.js -->
     <script defer src="https://unpkg.com/@tensorflow/tfjs-core@2.1.0/dist/tf-core.js"></script>
     <script defer src="https://unpkg.com/@tensorflow/tfjs-converter@2.1.0/dist/tf-converter.js"></script>
@@ -9,12 +9,13 @@
     <!-- GPU backend -->
     <script defer src="https://unpkg.com/@tensorflow/tfjs-backend-webgl@2.1.0/dist/tf-backend-webgl.js"></script>
     <!-- CPU backend -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-cpu"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-cpu"></script>
     <!-- WASM backend -->
-    <!-- <script src="https://unpkg.com/@tensorflow/tfjs-backend-wasm@2.1.0/dist/tf-backend-wasm.js"></script> -->
+    <script src="https://unpkg.com/@tensorflow/tfjs-backend-wasm@2.1.0/dist/tf-backend-wasm.js"></script>
     
     <script defer src="https://unpkg.com/@tensorflow-models/handpose@0.0.6/dist/handpose.js"></script>
-    <script defer src="./src/index.js"></script>
+    <script defer src="index.js"></script>
+    <script src="knear.js"></script>
 </head>
 
 <body>
@@ -24,5 +25,8 @@
         <video id="video" playsinline ></video>
     </div>
     <h2>Landmarks array voor KNN ⬇️</h2>
-    <div id="array">bla</div>
+    <button id ="handPose">Fist</button>
+    <button id ="handPalm">Palm</button>
+    <button id = "classify">Classify</button>
+    <div id="array">Prediction</div>
 </body>
